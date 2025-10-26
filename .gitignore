@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Virtual Environment
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Docker volumes
+elasticsearch-data/
+
+# Logs
+*.log
+
+# Secrets (IMPORTANT!)
+.env
+secrets.txt
+
+# OS
+.DS_Store
+Thumbs.db
