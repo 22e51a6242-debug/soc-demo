@@ -4,8 +4,8 @@ Security Operations Center Demo Project
 
 **Security Operations Center Demo - Real-time Threat Detection System**
 
-**Author:** [Your Name]  
-**Course:** [Your Course/Subject]  
+**Author:** Nithin 
+**Course:** CSE(Cyber Security)
 **Date:** October 2025
 
 ## 🎯 Project Overview
