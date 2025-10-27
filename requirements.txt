@@ -1,0 +1,10 @@
+# SOC Demo Dependencies
+
+# HTTP requests for sending logs and Slack alerts
+requests==2.31.0
+
+# Elasticsearch Python client
+elasticsearch==8.11.0
+
+# Load environment variables from .env file
+python-dotenv==1.0.0
