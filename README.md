@@ -2,7 +2,7 @@
 
 > A Security Operations Center simulation I built to learn about real-time threat detection and monitoring
 
-**Author:** Nithin  
+**Author:** HITAM Major Project Group 4 (Nithin, Shreyash, Harish, Advaith)  
 **Course:** CSE (Cyber Security)  
 **Date:** October 2025
 
