@@ -331,3 +331,33 @@ If you have questions or suggestions, feel free to open an issue or reach out!
 ---
 
 Made with ☕ and a lot of trial & error
+
+---
+
+## Grafana Executive Dashboard (Pre-Provisioned)
+
+Grafana is now pre-configured so you can open it and immediately use the SOC dashboard.
+
+- URL: http://localhost:3000
+- Default login: `admin` / `admin` (Grafana will ask you to change password on first login)
+- Provisioned Elasticsearch data source:
+  - URL: `http://elasticsearch:9200`
+  - Index pattern: `soc-logs-*`
+  - Time field: `@timestamp`
+- Provisioned dashboard: **SOC Executive Monitoring Dashboard**
+- Dashboard refresh: **5s** (real-time demo feel)
+
+Included dashboard panels:
+
+1. Total Events Over Time (time series)
+2. Events by Event Type (pie)
+3. Severity Distribution (donut)
+4. Top Source IPs (bar/time series style)
+5. Alerts Timeline (High/Critical)
+6. Security Event Geomap (`geoip.location` with geo fields in tooltip)
+
+If services are already running, restart Grafana after these config changes:
+
+```bash
+docker-compose up -d --force-recreate grafana
+```
