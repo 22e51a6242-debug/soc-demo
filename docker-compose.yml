@@ -1,4 +1,3 @@
-
 services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
@@ -60,6 +59,9 @@ services:
       - "3000:3000"
     volumes:
       - grafana-data:/var/lib/grafana
+      - ./configs/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./configs/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - ./configs/grafana/dashboards:/etc/grafana/provisioning/dashboards/json
     networks:
       - soc-network
     depends_on:
