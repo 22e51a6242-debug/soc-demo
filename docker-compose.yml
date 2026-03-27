@@ -60,6 +60,8 @@ services:
       - "3000:3000"
     volumes:
       - grafana-data:/var/lib/grafana
+      - ./configs/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./configs/grafana/dashboards:/var/lib/grafana/dashboards:ro
     networks:
       - soc-network
     depends_on:
