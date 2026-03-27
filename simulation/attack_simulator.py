@@ -19,7 +19,7 @@ def simulate_brute_force():
             "timestamp": datetime.utcnow().isoformat(),
             "event_type": "failed_login",
             "username": "admin",
-            "source_ip": "203.0.113.45",
+            "source_ip": "91.240.118.172",
             "service": "ssh",
             "status": "failure",
             "attempts": i + 1,
@@ -42,7 +42,7 @@ def simulate_port_scan():
     log = {
         "timestamp": datetime.utcnow().isoformat(),
         "event_type": "port_scan",
-        "source_ip": "198.51.100.78",
+        "source_ip": "103.86.182.64",
         "destination_ip": "192.168.1.1",
         "ports_scanned": 250,
         "status": "detected",
@@ -63,7 +63,7 @@ def simulate_sql_injection():
     log = {
         "timestamp": datetime.utcnow().isoformat(),
         "event_type": "sql_injection",
-        "source_ip": "203.0.113.45",
+        "source_ip": "45.227.255.206",
         "target_url": "/api/login",
         "payload": "admin' OR '1'='1' --",
         "status": "blocked",
