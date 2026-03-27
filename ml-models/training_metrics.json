@@ -1,0 +1,22 @@
+{
+  "training_date": "2026-03-07T06:00:19.288515",
+  "training_samples": 5460,
+  "features": [
+    "hour",
+    "is_failed_login",
+    "is_port_scan",
+    "is_sql_injection",
+    "is_external_ip",
+    "attempts",
+    "ports_scanned"
+  ],
+  "model": "Isolation Forest",
+  "contamination": 0.1,
+  "n_estimators": 100,
+  "anomalies_detected": 546,
+  "normal_samples": 4914,
+  "anomaly_rate": 0.1,
+  "mean_anomaly_score": -0.4818377266685463,
+  "min_score": -0.6910911923168728,
+  "max_score": -0.3855823900941702
+}
