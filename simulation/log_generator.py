@@ -13,9 +13,20 @@ from datetime import datetime
 LOGSTASH_URL = "http://localhost:5000"
 
 USERNAMES = ["admin", "john.doe", "jane.smith", "root", "user123", "guest", "developer"]
-IP_ADDRESSES = [
-    "192.168.1.100", "10.0.0.50", "172.16.0.20",
-    "203.0.113.45", "198.51.100.78", "192.168.1.200"
+NORMAL_SOURCE_IPS = [
+    # Public routable examples spread across major regions for baseline traffic
+    "52.95.245.18",   # North America
+    "3.112.45.201",   # Asia-Pacific
+    "18.194.76.132",  # Europe
+    "34.100.212.44"   # South America
+]
+
+SUSPICIOUS_SOURCE_IPS = [
+    # Public routable examples used for higher-risk behaviors
+    "91.240.118.172", # Europe
+    "103.86.182.64",  # Asia-Pacific
+    "45.227.255.206", # South America
+    "196.251.85.11"   # Africa
 ]
 SERVICES = ["ssh", "http", "ftp", "mysql", "rdp", "smtp"]
 
@@ -24,7 +35,7 @@ def generate_normal_log():
         "timestamp": datetime.utcnow().isoformat(),
         "event_type": "successful_login",
         "username": random.choice(USERNAMES),
-        "source_ip": random.choice(IP_ADDRESSES[:3]),
+        "source_ip": random.choice(NORMAL_SOURCE_IPS),
         "service": random.choice(SERVICES),
         "status": "success",
         "message": "User logged in successfully"
@@ -36,7 +47,7 @@ def generate_failed_login():
         "timestamp": datetime.utcnow().isoformat(),
         "event_type": "failed_login",
         "username": random.choice(USERNAMES),
-        "source_ip": random.choice(IP_ADDRESSES[3:]),
+        "source_ip": random.choice(SUSPICIOUS_SOURCE_IPS),
         "service": "ssh",
         "status": "failure",
         "attempts": random.randint(3, 10),
@@ -48,7 +59,7 @@ def generate_port_scan():
     log = {
         "timestamp": datetime.utcnow().isoformat(),
         "event_type": "port_scan",
-        "source_ip": random.choice(IP_ADDRESSES[3:]),
+        "source_ip": random.choice(SUSPICIOUS_SOURCE_IPS),
         "destination_ip": "192.168.1.1",
         "ports_scanned": random.randint(50, 500),
         "status": "detected",
@@ -60,7 +71,7 @@ def generate_sql_injection():
     log = {
         "timestamp": datetime.utcnow().isoformat(),
         "event_type": "sql_injection",
-        "source_ip": random.choice(IP_ADDRESSES[3:]),
+        "source_ip": random.choice(SUSPICIOUS_SOURCE_IPS),
         "target_url": "/api/users",
         "payload": "' OR '1'='1",
         "status": "blocked",
