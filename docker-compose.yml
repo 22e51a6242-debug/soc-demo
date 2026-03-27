@@ -59,6 +59,8 @@ services:
       - "3000:3000"
     volumes:
       - grafana-data:/var/lib/grafana
+      - ./configs/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./configs/grafana/dashboards:/var/lib/grafana/dashboards:ro
       - ./configs/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
       - ./configs/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
       - ./configs/grafana/dashboards:/etc/grafana/provisioning/dashboards/json

@@ -145,7 +145,7 @@ echo "SLACK_WEBHOOK_URL=your_webhook_url_here" > .env
 
 ### 5. Start Docker services
 
-This will download and start Elasticsearch, Kibana, and Logstash:
+This will download and start Elasticsearch, Kibana, Logstash, and Grafana:
 
 ```bash
 docker-compose up -d
@@ -156,7 +156,11 @@ Wait like 2-3 minutes for everything to start. You can check status with:
 docker-compose ps
 ```
 
-All three services should show "Up" or "Up (healthy)"
+All services should show "Up" or "Up (healthy)"
+
+
+
+Grafana is available at http://localhost:3000 (default login: `admin` / `admin`) and auto-loads the provisioned Elasticsearch datasource and SOC dashboard from `configs/grafana/`.
 
 ### 6. Set up Kibana
 
@@ -225,6 +229,14 @@ The coolest part was seeing how fast Elasticsearch can search through thousands 
 ```
 soc-demo/
 ├── configs/
+│   ├── grafana/
+│   │   ├── dashboards/
+│   │   │   └── soc-overview.json   # Auto-imported Grafana dashboard
+│   │   └── provisioning/
+│   │       ├── dashboards/
+│   │       │   └── dashboards.yaml # Dashboard provisioning
+│   │       └── datasources/
+│   │           └── elasticsearch.yaml # Elasticsearch datasource provisioning
 │   └── logstash/
 │       └── pipeline/
 │           └── logstash.conf       # Log processing rules
