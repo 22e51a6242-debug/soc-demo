@@ -53,10 +53,25 @@ services:
       elasticsearch:
         condition: service_healthy
 
+  grafana:
+    image: grafana/grafana:11.2.0
+    container_name: soc-grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+    networks:
+      - soc-network
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+
 networks:
   soc-network:
     driver: bridge
 
 volumes:
   elasticsearch-data:
+    driver: local
+  grafana-data:
     driver: local
